@@ -1,0 +1,22 @@
+<!-- Required Permissions for Car Voice Control Feature -->
+<!-- Add these to your main AndroidManifest.xml file -->
+
+<!-- Voice recognition from steering wheel -->
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.INTERNET" />
+
+<!-- For handling media button events from steering wheel -->
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+<!-- Required for querying YouTube app installation -->
+<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
+<!-- Add receiver for media button events -->
+<!-- Place this inside the <application> tag -->
+<receiver
+    android:name="me.aap.fermata.car.CarSteeringWheelListener"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.MEDIA_BUTTON" />
+    </intent-filter>
+</receiver>
